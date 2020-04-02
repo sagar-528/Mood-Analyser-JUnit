@@ -1,16 +1,18 @@
-public class MoodAnalyse {
+import java.util.Objects;
 
-    String message;
-    String returnMessage;
+public class MoodAnalyser {
+
+   private String message;
+    private String returnMessage;
 
     //no-arg constructor
-    public MoodAnalyse()
+    public MoodAnalyser()
     {
 
     }
 
     //parametrized constructor
-    public MoodAnalyse(String message)
+    public MoodAnalyser(String message)
     {
         this.message = message;
     }
@@ -36,5 +38,22 @@ public class MoodAnalyse {
             throw new MoodanalysisException(MoodanalysisException.ExceptionType.ENTERED_NULL,"Please enter proper message");
         }
        return returnMessage;
+    }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        if (this == obj)
+            return true;
+        if (!(obj instanceof MoodAnalyser))
+            return false;
+        MoodAnalyser that = (MoodAnalyser) obj;
+        return Objects.equals(message, that.message) && Objects.equals(returnMessage, that.returnMessage);
+    }
+
+    @Override
+    public int hashCode()
+    {
+        return  Objects.hash(message, returnMessage);
     }
 }
