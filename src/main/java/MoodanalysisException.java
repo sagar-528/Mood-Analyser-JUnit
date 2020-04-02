@@ -1,4 +1,16 @@
-package PACKAGE_NAME;
+public class MoodanalysisException extends Exception
+{
+    public MoodanalysisException(ExceptionType type,String message)
+    {
+        super(message);
+        this.type = type;
+    }
 
-public class MoodanalysisException {
+    enum ExceptionType
+    {
+        ENTERED_NULL,ENTERED_EMPTY
+    }
+    ExceptionType type;
+
+
 }
