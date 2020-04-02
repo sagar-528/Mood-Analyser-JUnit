@@ -1,13 +1,14 @@
 public class MoodAnalyse {
 
-    public String getMood(String message)
+    String message;
+    public MoodAnalyse(String message)
     {
-        if(message.contains("sad"))
-            return "SAD";
-        if(message.contains("happy"))
-            return "HAPPY";
-        else
-            return  "Invaild Mood";
+        this.message = message;
     }
-
+    public String getMood()
+    {
+        if(this.message.contains("Sad"))
+            return "SAD";
+            return "HAPPY";
+    }
 }
