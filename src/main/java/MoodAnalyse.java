@@ -5,7 +5,7 @@ public class MoodAnalyse {
     {
         this.message = message;
     }
-    public String getMood()
+    public String analyseMood()
     {
         if(this.message.contains("Sad"))
             return "SAD";

@@ -7,25 +7,17 @@ public class MoodAnalyserTest
     @Test
     public void returnMsgSad()
     {
-        MoodAnalyse moodAnalyse = new MoodAnalyse();
-        String mood = moodAnalyse.getMood("I am in Sad Mood");
+        MoodAnalyse moodAnalyse = new MoodAnalyse("I am in Sad Mood");
+        String mood = moodAnalyse.analyseMood();
         Assert.assertEquals("SAD",mood);
     }
 
     @Test
     public void msgReturnHappy()
     {
-        MoodAnalyse moodAnalyse = new MoodAnalyse();
-        String mood = moodAnalyse.getMood("I am in Any Mood");
+        MoodAnalyse moodAnalyse = new MoodAnalyse("I am in Any Mood");
+        String mood = moodAnalyse.analyseMood();
         Assert.assertEquals("HAPPY",mood);
-    }
-
-    @Test
-    public void msgReturnNull()
-    {
-        MoodAnalyse moodAnalyse = new MoodAnalyse();
-        String mood = moodAnalyse.getMood(" ");
-        Assert.assertEquals("Invaild Mood",mood);
     }
 
 }
