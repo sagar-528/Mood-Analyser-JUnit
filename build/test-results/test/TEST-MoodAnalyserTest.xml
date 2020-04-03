@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MoodAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-03T07:03:54" hostname="Sagar" time="0.045">
+<testsuite name="MoodAnalyserTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2020-04-03T07:33:08" hostname="Sagar" time="0.124">
   <properties/>
-  <testcase name="givenMoodAnalyserWithParameterConstructor_WhenProper_ShouldReturnObject" classname="MoodAnalyserTest" time="0.045"/>
+  <testcase name="givenNullMood_ShouldThrowCustomException" classname="MoodAnalyserTest" time="0.007"/>
+  <testcase name="givenMoodAnalyserWithParameterConstructor_WhenProper_ShouldReturnObject" classname="MoodAnalyserTest" time="0.003"/>
+  <testcase name="givenMoodAnalyse_WhenProper_ShouldReturnObject" classname="MoodAnalyserTest" time="0.002"/>
+  <testcase name="givenClassWithParameterizedConstructor_WhenConstructorIsNotProper_ShouldThrownAnalysisException" classname="MoodAnalyserTest" time="0.036"/>
+  <testcase name="givenMoodAnalyserWithParameterConstructor_WhenImProper_ShouldThrowMoodAnalysisException" classname="MoodAnalyserTest" time="0.002"/>
+  <testcase name="givenHappyMessage_WhenImProper_ShouldThrowMoodAnalysisEzception" classname="MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenHappyMessage_WhenProper_ShouldReturnHappyMood" classname="MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenMoodAnalyse_WhenProper_ShouldThrownAnalysisException" classname="MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenMoodAnalyse_WhenConstructorIsNotProper_ShouldThrownAnalysisException" classname="MoodAnalyserTest" time="0.002"/>
+  <testcase name="givenMessage_whenProper_RespondAsHappyMood" classname="MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenNullMood_ShouldThrowCustomExceptionWithExceptionType" classname="MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenNullMood_shouldReturnHappy" classname="MoodAnalyserTest" time="0.038"/>
+  <testcase name="givenMessage_whenProper_RespondAsSadMood" classname="MoodAnalyserTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
