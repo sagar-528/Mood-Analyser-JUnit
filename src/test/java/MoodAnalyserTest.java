@@ -139,5 +139,13 @@ public class MoodAnalyserTest
         }
     }
 
+    @Test
+    public void givenHappyMessage_WhenProper_ShouldReturnHappyMood() throws IllegalAccessException, InstantiationException, InvocationTargetException, MoodAnalysisException
+    {
+        Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser",String.class);
+        MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(moodAnalyserConstructor,"I am in happy mood");
+        Object result = MoodAnalyserFactory.createMethod(moodAnalyserObject,"analyseMood");
+        Assert.assertEquals("HAPPY",result);
+    }
 
 }
