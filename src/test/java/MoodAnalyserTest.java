@@ -162,4 +162,13 @@ public class MoodAnalyserTest
             Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD,e.type);
         }
     }
+
+    @Test
+    public void givenHappyMessageWithReflection_ShouldReturnHappy() throws IllegalAccessException, InstantiationException, InvocationTargetException, MoodAnalysisException, NoSuchFieldException, ClassNotFoundException
+    {
+        Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
+        MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(moodAnalyserConstructor);
+        Object result = MoodAnalyserFactory.createMethod(moodAnalyserObject,"analyseMood");
+        Assert.assertEquals("HAPPY",result);
+    }
 }
