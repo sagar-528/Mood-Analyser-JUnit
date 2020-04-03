@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="MoodAnalyserTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-02T08:31:10" hostname="Sagar" time="0.008">
+<testsuite name="MoodAnalyserTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2020-04-03T06:13:07" hostname="Sagar" time="0.111">
   <properties/>
-  <testcase name="givenNullMood_ShouldThrowCustomExceptionWithExceptionType" classname="MoodAnalyserTest" time="0.008"/>
+  <testcase name="givenNullMood_ShouldThrowCustomException" classname="MoodAnalyserTest" time="0.006"/>
+  <testcase name="givenMoodAnalyse_WhenProper_ShouldReturnObject" classname="MoodAnalyserTest" time="0.04"/>
+  <testcase name="givenMoodAnalyse_WhenProper_ShouldThrownAnalysisException" classname="MoodAnalyserTest" time="0.022"/>
+  <testcase name="givenMoodAnalyse_WhenConstructorIsNotProper_ShouldThrownAnalysisException" classname="MoodAnalyserTest" time="0.003"/>
+  <testcase name="givenMessage_whenProper_RespondAsHappyMood" classname="MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenNullMood_ShouldThrowCustomExceptionWithExceptionType" classname="MoodAnalyserTest" time="0.002"/>
+  <testcase name="givenNullMood_shouldReturnHappy" classname="MoodAnalyserTest" time="0.001"/>
+  <testcase name="givenMessage_whenProper_RespondAsSadMood" classname="MoodAnalyserTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,6 +1,6 @@
-public class MoodanalysisException extends Exception
+public class MoodAnalysisException extends Exception
 {
-    public MoodanalysisException(ExceptionType type,String message)
+    public MoodAnalysisException(ExceptionType type, String message)
     {
         super(message);
         this.type = type;

@@ -16,26 +16,27 @@ public class MoodAnalyser {
     {
         this.message = message;
     }
-    public String analyseMood(String message) throws MoodanalysisException
+
+    public String analyseMood(String message) throws MoodAnalysisException
     {
         this.message = message;
         return  analyseMood();
     }
 
     // Overloading analysedMood method
-    public String analyseMood() throws MoodanalysisException
+    public String analyseMood() throws MoodAnalysisException
     {
         try
         {
             if (message.length() == 0)
             {
-                throw new MoodanalysisException(MoodanalysisException.ExceptionType.ENTERED_EMPTY,"Please enter proper mood");
+                throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_EMPTY,"Please enter proper mood");
             }
-            returnMessage= (message.contains("sad")) ? "SAD":"HAPPY";
+            returnMessage= (message.contains("Sad")) ? "SAD":"HAPPY";
         }
         catch (NullPointerException e)
         {
-            throw new MoodanalysisException(MoodanalysisException.ExceptionType.ENTERED_NULL,"Please enter proper message");
+            return "HAPPY";
         }
        return returnMessage;
     }
