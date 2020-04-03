@@ -103,21 +103,28 @@ public class MoodAnalyserTest
     }
 
     @Test
-    public void givenMoodAnalyserWithParameterConstructor_WhenProper_ShouldReturnObject() throws IllegalAccessException, InstantiationException, InvocationTargetException
-    {
+    public void givenMoodAnalyserWithParameterConstructor_WhenProper_ShouldReturnObject() throws IllegalAccessException, InstantiationException, InvocationTargetException, MoodAnalysisException {
 
         moodAnalyser = new MoodAnalyser("I am in happy mood");
-        Constructor<?> moodAnalyserConstructor = null;
-        try {
-            moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
-        } catch (MoodAnalysisException e) {
-            e.printStackTrace();
-        }
+        Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
         MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(moodAnalyserConstructor,"I am in happy mood");
         check = moodAnalyser.equals(moodAnalyserObject);
         Assert.assertEquals(true, check);
     }
 
+
+    @Test
+    public void givenMoodAnalyserWithParameterConstructor_WhenImProper_ShouldThrowMoodAnalysisException() throws IllegalAccessException, InstantiationException, InvocationTargetException, MoodAnalysisException
+    {
+        try
+        {
+            Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("CroodAnalyser",String.class);
+        }
+        catch (MoodAnalysisException e)
+        {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_CLASS,e.type);
+        }
+    }
 
 
 }
