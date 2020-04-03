@@ -126,5 +126,16 @@ public class MoodAnalyserTest
         }
     }
 
-
+    @Test
+    public void givenClassWithParameterizedConstructor_WhenConstructorIsNotProper_ShouldThrownAnalysisException()
+    {
+        try
+        {
+            Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser", Integer.class, String.class);
+        }
+        catch (MoodAnalysisException e)
+        {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD,e.type);
+        }
+    }
 }
