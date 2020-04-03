@@ -1,4 +1,5 @@
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -27,7 +28,8 @@ public class MoodAnalyserFactory
         return (MoodAnalyser) moodAnalyserConstructor.newInstance(message);
     }
 
-    public static Object createMethod(MoodAnalyser moodAnalyserObject, String methodName) throws IllegalAccessException, InvocationTargetException, MoodAnalysisException {
+    public static Object createMethod(MoodAnalyser moodAnalyserObject, String methodName) throws IllegalAccessException, InvocationTargetException, MoodAnalysisException
+    {
         Method method = null;
         try
         {
@@ -39,5 +41,23 @@ public class MoodAnalyserFactory
             throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NO_SUCH_METHOD,"Method not found");
         }
         return method.invoke(moodAnalyserObject);
+    }
+
+    public static void setVariableValues(MoodAnalyser moodAnalyserObject, String variableName, String variableValue) throws IllegalAccessException, InvocationTargetException, MoodAnalysisException, InstantiationException, ClassNotFoundException
+    {
+        Field field = null;
+        try
+        {
+           field = moodAnalyserObject.getClass().getField(variableName);
+           field.set(moodAnalyserObject,variableValue);
+        }
+        catch (NoSuchFieldException e)
+        {
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.NO_SUCH_FIELD,"No such field");
+        }
+        catch (NullPointerException e)
+        {
+            throw new MoodAnalysisException(MoodAnalysisException.ExceptionType.ENTERED_NULL,"Null value entered");
+        }
     }
 }

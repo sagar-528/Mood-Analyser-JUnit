@@ -171,4 +171,34 @@ public class MoodAnalyserTest
         Object result = MoodAnalyserFactory.createMethod(moodAnalyserObject,"analyseMood");
         Assert.assertEquals("HAPPY",result);
     }
+
+    @Test
+    public void setField_WhenImproper_ShouldThrowExceptionWithNoSuchField() throws IllegalAccessException, InstantiationException, InvocationTargetException, MoodAnalysisException, ClassNotFoundException, NullPointerException
+    {
+        try
+        {
+            Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
+            MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(moodAnalyserConstructor);
+            MoodAnalyserFactory.setVariableValues(moodAnalyserObject,"message","I am on happy mood");
+        }
+        catch (MoodAnalysisException e)
+        {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.NO_SUCH_FIELD,e.type);
+        }
+    }
+
+    @Test
+    public void settingNullMessage_WithReflection_ShouldThrowException() throws IllegalAccessException, InstantiationException, InvocationTargetException, MoodAnalysisException, ClassNotFoundException
+    {
+        try
+        {
+            Constructor<?> moodAnalyserConstructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
+            MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(moodAnalyserConstructor);
+            MoodAnalyserFactory.setVariableValues(moodAnalyserObject,"message",null);
+        }
+        catch (MoodAnalysisException e)
+        {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL,e.type);
+        }
+    }
 }
